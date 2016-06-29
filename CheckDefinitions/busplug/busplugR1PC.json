@@ -1,0 +1,12 @@
+{"checks":
+	{"busplug":
+		{"type":"metric",
+                "command":"busplug.py electrical:busplug*R1*PC*",
+		"standalone": true,
+		"subscribers":["busplugR1PC"],
+		"handler":"influxdb",
+		"interval":60
+		}
+
+	}
+}

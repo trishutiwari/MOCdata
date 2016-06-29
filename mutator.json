@@ -1,0 +1,9 @@
+{
+"mutators":
+ {
+"only_check_output": {
+"command": "only_check_output.py"
+}
+ }
+
+}

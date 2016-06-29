@@ -1,0 +1,12 @@
+{"checks":
+	{"mechanicalIRC":
+		{"type":"metric",
+                "command":"mechanicalIRC.py mechanical:irc:*R4*",
+		"standalone": true,
+		"subscribers":["mechanicalIRCR4"],
+		"handler":"influxdb",
+		"interval":60
+		}
+
+	}
+}

@@ -1,0 +1,12 @@
+{"checks":
+	{"others":
+		{"type":"metric",
+                "command":"others.py",
+		"standalone": true,
+		"subscribers":["others"],
+		"handler":"influxdb3",
+		"interval":60
+		}
+
+	}
+}

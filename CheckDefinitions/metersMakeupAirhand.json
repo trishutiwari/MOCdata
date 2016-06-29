@@ -1,0 +1,12 @@
+{"checks":
+	{"metersMakeupAirhand":
+		{"type":"metric",
+                "command":"metersMakeupAirhand.py",
+		"standalone": true,
+		"subscribers":["metersMakeupAirhand"],
+		"handler":"influxdb2",
+		"interval":60
+		}
+
+	}
+}

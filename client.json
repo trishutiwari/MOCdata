@@ -1,0 +1,21 @@
+{
+"client":{
+
+  "name": "ubuntu",
+
+  "address": "127.0.0.1",
+  "subscriptions":["metersMakeupAirhand","others","mechanicalIRCR1","mechanicalIRCR2","mechanicalIRCR3","mechanicalIRCR4","mechanicalIRCR5","mechanicalIRCR6","mechanicalIRCR7","mechanicalIRCR8","busplugR1PA","busplugR1PB","busplugR1PC","busplugR2PA","busplugR2PB","busplugR2PC","busplugR3PA","busplugR3PB","busplugR3PC","busplugR4PA","busplugR4PB","busplugR4PC","busplugR5PA","busplugR5PB","busplugR5PC","busplugR6PA","busplugR6PB","busplugR6PC","busplugR7PA","busplugR7PB","busplugR7PC","busplugR8PA","busplugR8PB","busplugR8PC"],
+
+  "socket": {
+
+    "bind": "127.0.0.1",
+
+    "port": 3030
+
+  }
+      
+ }
+    
+}
+
+
