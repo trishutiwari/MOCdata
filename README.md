@@ -22,4 +22,7 @@ However, to avoid code duplication, I have used the same check command for all t
 for all irc checks. The check command for each check therefore points to the same python file, but the command also 
 includes a command line argument that instructs each check to look at only a subset of the busplug/irc data.
 
-The check result from each of these checks is then handled by 
+The check result from all checks is then handled by one handler called influxdb. This handler is responsible for transferring all the check results via udp 
+(port 8090) to influxdb.
+
+Before the handler is executed, however,  

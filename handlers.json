@@ -10,22 +10,6 @@
 "port": 8090
 }
                          
-  },
-   "influxdb2":
-  {"type": "udp",
-   "mutator":"only_check_output",
-   "socket": {
-"host": "127.0.0.1",
-"port": 8091}
-                         
-  },
- "influxdb3":
-  {"type": "udp",
-   "mutator":"only_check_output",
-   "socket": {
-"host": "127.0.0.1",
-"port": 8092}
-                         
   }
  }
 }

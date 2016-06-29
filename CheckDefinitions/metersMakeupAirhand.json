@@ -4,7 +4,7 @@
                 "command":"metersMakeupAirhand.py",
 		"standalone": true,
 		"subscribers":["metersMakeupAirhand"],
-		"handler":"influxdb2",
+		"handler":"influxdb",
 		"interval":60
 		}
 

@@ -4,7 +4,7 @@
                 "command":"others.py",
 		"standalone": true,
 		"subscribers":["others"],
-		"handler":"influxdb3",
+		"handler":"influxdb",
 		"interval":60
 		}
 
