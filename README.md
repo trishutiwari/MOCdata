@@ -1,5 +1,5 @@
 ### MOC Data
-#Transferring MOC data from redis to influxDB using python
+#Transferring MOC data from Redis to InfluxDB using python
 
 I used Python and the following technologies to carry out the project:
 
@@ -20,7 +20,12 @@ I used Python and the following technologies to carry out the project:
 
 #Overview:
 
-In a nutshell, I have written 4 python scripts that Sensu executes every minute. These scripts collect 
+In a nutshell, I have written 4 python scripts that Sensu executes every minute. Each time the scripts are executed, they
+create a connection with a the Redis database that holds the MOC Data. These scripts then get all the data keys from Redis,
+parse their values, pick out the relevant information, and format them properly. This formatted data is then sent
+through a UDP connection to influxDB, which then stores the data.  
+
+#Redis Data
 
 I categoriezed the different keys (there are around 1300-1400 keys in total (the actual number fluctuates) )
 in the redis instance into 4 types:
