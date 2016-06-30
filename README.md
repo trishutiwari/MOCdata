@@ -1,7 +1,29 @@
-# MOCdata
-Transferring MOC data from redis to influxDB using python
+### MOC Data
+#Transferring MOC data from redis to influxDB using python
 
-I categoriezed the different keys (there were 1302 keys in total) in the redis instance into 4 types:
+I used Python and the following technologies to carry out the project:
+
+1) [Sensu](https://sensuapp.org/)
+   Sensu is a monitoring framework used to collect the specefied data from client computers at regular intervals.
+
+2) [Redis](http://redis.io/)
+   Redis is a key-value database. This was the database in which all the MOC Data was originally stored.
+   
+3) [InfluxDB](https://influxdata.com/)
+   InfluxDB is a time-series database. This is the database to which I transferred all the data from Redis.
+
+4) [Uchiwa](https://uchiwa.io/)
+   Uchiwa is a framework used to monitor the data sent out by Sensu.
+
+5) [Grafana](http://grafana.org/)
+   Grafana provides beautiful dashboards for us to graph data stored in InfluxDB.
+
+#Overview:
+
+In a nutshell, I have written 4 python scripts that Sensu executes every minute. These scripts collect 
+
+I categoriezed the different keys (there are around 1300-1400 keys in total (the actual number fluctuates) )
+in the redis instance into 4 types:
  
 1) Electrical busplug
 
