@@ -20,6 +20,8 @@ I used Python and the following technologies to carry out the project:
 
 #Overview:
 
+(https://github.com/trishutiwari/MOCdata/blob/master/Overall-FrameWork.png)
+
 In a nutshell, I have written 4 python scripts that Sensu executes every minute. Each time the scripts are executed, they
 create a connection with a the Redis database that holds the MOC Data. These scripts then get all the data keys from Redis,
 parse their values, pick out the relevant information, and format them properly. This formatted data is then sent
@@ -38,7 +40,70 @@ in the redis instance into 4 types:
 
 4) Others
 
-I wrote check command scripts for each category (found in the CheckCommands Folder)
+#Sensu Monitoring
+
+Here is a simplified version of how sensu works:
+
+(https://github.com/trishutiwari/MOCdata/blob/master/Sensu-Model.png)
+
+This is how sensu works in general. However, I have used Sensu's standalone model, which means that the sensu-server
+and sensu-client are running on the same machiene.
+
+In order to build a sensu framework, I needed to define a sensu-client. The client is just a json file that declares its
+subscriptions to checks on the server:
+
+Here is what a client file looks like:
+
+``` json
+{
+"client":{
+
+  "name": "ubuntu",
+
+  "address": "127.0.0.1",
+  "subscriptions":["metersMakeupAirhand","others","mechanicalIRCR1","mechanicalIRCR2","mechanicalIRCR3","mechanicalIRCR4","mechanicalIRCR5","mechanicalIRCR6","mechanicalIRCR7","mechanicalIRCR8","busplugR1PA","busplugR1PB","busplugR1PC","busplugR2PA","busplugR2PB","busplugR2PC","busplugR3PA","busplugR3PB","busplugR3PC","busplugR4PA","busplugR4PB","busplugR4PC","busplugR5PA","busplugR5PB","busplugR5PC","busplugR6PA","busplugR6PB","busplugR6PC","busplugR7PA","busplugR7PB","busplugR7PC","busplugR8PA","busplugR8PB","busplugR8PC"],
+
+  "socket": {
+
+    "bind": "127.0.0.1",
+
+    "port": 3030
+
+  }
+      
+ }
+    
+}
+```
+The subscriptions line is important, as this line tells the sensu-server what checks the client wishes to execute.
+The IP address is the loopback adderess as this is a standalone framework.
+
+I then needed to define checks on the sensu server. Checks are also json formatted files. Here is a sample check:
+
+```json
+{"checks":
+	{"others":
+		{"type":"metric",
+                "command":"others.py",
+		"standalone": true,
+		"subscribers":["others"],
+		"handler":"influxdb",
+		"interval":60
+		}
+
+	}
+}
+```
+The "command" argument tells sensu which script to execute on the client, and the "interval" tells the server 
+how often to do so.
+
+I wrote check command scripts (found in the CheckCommands Folder) for each category defined in the beginning. 
+
+These commands simply create a connection with the Redis database, like so:
+
+```
+client = Redis
+
 
 Then I wrote check definitions for each. Soon, I realized that there was too much data in categories 1) and 2) to be 
 handled by single checks. 
