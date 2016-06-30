@@ -101,8 +101,10 @@ I wrote check command scripts (found in the CheckCommands Folder) for each categ
 
 These commands simply create a connection with the Redis database, like so:
 
+```python
+import redis
+client = redis.Redis("ip address of machiene with redis")
 ```
-client = Redis
 
 
 Then I wrote check definitions for each. Soon, I realized that there was too much data in categories 1) and 2) to be 
