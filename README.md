@@ -20,7 +20,7 @@ I used Python and the following technologies to carry out the project:
 
 #Overview:
 
-(https://github.com/trishutiwari/MOCdata/blob/master/Overall-FrameWork.png)
+![logo](https://github.com/trishutiwari/MOCdata/blob/master/Overall-FrameWork.png)
 
 In a nutshell, I have written 4 python scripts that Sensu executes every minute. Each time the scripts are executed, they
 create a connection with a the Redis database that holds the MOC Data. These scripts then get all the data keys from Redis,
@@ -44,7 +44,7 @@ in the redis instance into 4 types:
 
 Here is a simplified version of how sensu works:
 
-(https://github.com/trishutiwari/MOCdata/blob/master/Sensu-Model.png)
+![logo](https://github.com/trishutiwari/MOCdata/blob/master/Sensu-Model.png)
 
 This is how sensu works in general. However, I have used Sensu's standalone model, which means that the sensu-server
 and sensu-client are running on the same machiene.
@@ -99,13 +99,14 @@ how often to do so.
 
 I wrote check command scripts (found in the CheckCommands Folder) for each category defined in the beginning. 
 
-These commands simply create a connection with the Redis database, like so:
+Each command simply creates a connection with the Redis database, like so:
 
 ```python
 import redis
 client = redis.Redis("ip address of machiene with redis")
 ```
-
+The script then gets the keys that fall within its category (Busplug, IRC, .etc)
+Each of the keys  
 
 Then I wrote check definitions for each. Soon, I realized that there was too much data in categories 1) and 2) to be 
 handled by single checks. 
