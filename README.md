@@ -106,10 +106,57 @@ import redis
 client = redis.Redis("ip address of machiene with redis")
 ```
 The script then gets the keys that fall within its category (Busplug, IRC, .etc)
-Each of the keys  
+Each of the keys had values formatted in json, so I had to use python's json module to parse it:
 
-Then I wrote check definitions for each. Soon, I realized that there was too much data in categories 1) and 2) to be 
-handled by single checks. 
+```python
+import json
+data = json.loads(client.get("Some Redis Key"))
+```  
+Now the data variable just holds a regular python dictionary. I could then pick out the relevant keys and values and then
+format it as per the influxDB requirements. 
+
+Now that the data is formatted, I simply needed to write it out to sys.stdout.
+
+We can easily check if these checks are working through Uchiwa, which is basically provides a UI for looking at the results
+published by sensu checks.
+Here is what some of our check results look like in Uchiwa:
+
+![logo](https://github.com/trishutiwari/MOCdata/blob/master/uchiwaScreenShot.png)
+
+The great thing about Uchiwa is that it keeps updating itself, thereby allowing us to monitor data in real time.
+
+Once the data is written to stdout, something must take that data from there and transfer it to influxDB. Here is where the
+sensu handlers and mutators come in.
+
+So a sensu handler is just a file that tells sensu what to do with the output data. In our case, the handler is configured
+to send out the data through a udp port.
+
+InfluxDB also has a UDP api, and so I needed to modify the influxDB configuration file to activate this api.
+
+The mutator, as it's name suggests, is used to mutate the data before its being sent to influxDB through the handler. 
+
+I needed to have a mutator because in addition to the formatted data we print out to stdout, sensu also adds some of its own
+meta data before transferring it to the handler. I needed to get rid of this extra data before sending it so as to not cause 
+any problems with influxDB's line protocol.
+This is what a mutator looks like:
+
+```json
+{
+"mutators":
+ {
+"only_check_output": { //this is the name of our mutator
+"command": "only_check_output.py"
+}
+ }
+
+}
+```
+Here again, the "command" points to the actual python script that will run to pick out only the desired output before
+sending it off to InfluxDB.
+
+Side note:
+While writing check definitions, I realized that there was too much data in categories 1) and 2) (Electrical Busplug and
+Mechanical IRC) to be handled by single checks. 
 Hence, I created individual checks for each subset of the busplug and irc data (these can be found in the irc and
 busplug folders within the CheckDefinitions folder)
 
@@ -121,21 +168,21 @@ For example:
 
 the busplugR1PA.json check file includes the following command:
 
+``` json
 "command":"busplug.py electrical:busplug*R1*PA*"
+```
 
-So this tells the check to execute the busplug.py file, and look at only the busplug keys of the form "electrical:busplug*R1*PA*". 
+So this tells the check to execute the busplug.py file, and look at only the busplug keys of the form ```json "electrical:busplug*R1*PA*"```. 
 Similarly, other busplug checks also point towards the busplug.py file, but have different command line arguments (for instance,
-electrical:busplug*R1*PB*, electrical:busplug*R2*PA*, etc).
+```json electrical:busplug*R1*PB*, electrical:busplug*R2*PA* ```, etc).
 So all of them use the same script but with different inputs. 
 
-Each check command script parses the json data stored in the redis keys, picks out the values needed, and then formats those values in the
-influxdb format. This formatted data is then sent to sys.stdout, from where it is picked up by the handlers.
+Once our data is recieved by InfluxDB, it is extremely easy for us to visualize it using Grafana. 
 
-The check result from all checks is then handled by one handler called "influxdb" (located in the handlers.json file). 
-This handler is responsible for transferring all the check results via udp (port 8090) to influxdb.
+Here are a few screenshots of the data (in Grafana):
 
-Before the handler is executed, however, we must remove all unecessary data that sensu adds to the check results.
-This is done via a sensu mutator (called "only_check_output", and located in the mutator.json file), which picks out solely
-the output that we wish to transfer. 
+Here is some of the Mechanical IRC and apparent/displacement pf data:
 
-Once the mutator is excuted, the data is transferred by the handler and recieved by influxdb.
+Like Uchiwa, graphs in Grafana too can continuosly update themselves to reflect the newer data as it comes in:
+
+![logo](https://github.com/trishutiwari/MOCdata/blob/master/grafanaScreenShot.png)
