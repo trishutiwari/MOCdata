@@ -1,0 +1,12 @@
+{"checks":
+	{"totalPower":
+		{"type":"metric",
+                "command":"totalPower.py",
+		"standalone": true,
+		"subscribers":["totalPower"],
+		"handler":"influxdbTotalPower",
+		"interval":300
+		}
+
+	}
+}

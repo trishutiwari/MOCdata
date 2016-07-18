@@ -10,6 +10,277 @@
 "port": 8090
 }
                          
+  },
+  "influxdb1": 
+  {"type": "udp",
+
+   "mutator":"only_check_output",                
+   "socket": {
+"host": "127.0.0.1",
+"port": 8091
+}
+                         
+  },
+  
+"influxdb2": 
+  {"type": "udp",
+
+   "mutator":"only_check_output",                
+   "socket": {
+"host": "127.0.0.1",
+"port": 8092}
+                         
+  },
+  
+"influxdb3": 
+  {"type": "udp",
+
+   "mutator":"only_check_output",                
+   "socket": {
+"host": "127.0.0.1",
+"port": 8093}
+                         
+  },
+  
+"influxdb4": 
+  {"type": "udp",
+
+   "mutator":"only_check_output",                
+   "socket": {
+"host": "127.0.0.1",
+"port": 8094
+}
+                         
+  },
+  
+"influxdb5": 
+  {"type": "udp",
+
+   "mutator":"only_check_output",                
+   "socket": {
+"host": "127.0.0.1",
+"port": 8095
+}
+                         
+  },
+  
+"influxdb6": 
+  {"type": "udp",
+
+   "mutator":"only_check_output",                
+   "socket": {
+"host": "127.0.0.1",
+"port": 8096
+}
+                         
+  },
+  
+"influxdb7": 
+  {"type": "udp",
+
+   "mutator":"only_check_output",                
+   "socket": {
+"host": "127.0.0.1",
+"port": 8097
+}
+                         
+  },
+  
+"influxdb8": 
+  {"type": "udp",
+
+   "mutator":"only_check_output",                
+   "socket": {
+"host": "127.0.0.1",
+"port": 8098}
+                         
+  },
+  
+"influxdb9": 
+  {"type": "udp",
+
+   "mutator":"only_check_output",                
+   "socket": {
+"host": "127.0.0.1",
+"port": 8099
+}
+                         
+  },
+  
+"influxdb10": 
+  {"type": "udp",
+
+   "mutator":"only_check_output",                
+   "socket": {
+"host": "127.0.0.1",
+"port": 8010}
+                         
+  },
+  
+"influxdb11": 
+  {"type": "udp",
+
+   "mutator":"only_check_output",                
+   "socket": {
+"host": "127.0.0.1",
+"port": 8011}
+                         
+  },
+  
+"influxdb12": 
+  {"type": "udp",
+
+   "mutator":"only_check_output",                
+   "socket": {
+"host": "127.0.0.1",
+"port": 8012}
+                         
+  },
+  
+"influxdb13": 
+  {"type": "udp",
+
+   "mutator":"only_check_output",                
+   "socket": {
+"host": "127.0.0.1",
+"port": 8013}
+                         
+  },
+  
+"influxdb14": 
+  {"type": "udp",
+
+   "mutator":"only_check_output",                
+   "socket": {
+"host": "127.0.0.1",
+"port": 8014}
+                         
+  },
+  
+"influxdb15": 
+  {"type": "udp",
+
+   "mutator":"only_check_output",                
+   "socket": {
+"host": "127.0.0.1",
+"port": 8015}
+                         
+  },
+   
+"influxdb16": 
+  {"type": "udp",
+
+   "mutator":"only_check_output",                
+   "socket": {
+"host": "127.0.0.1",
+"port": 8016}
+                         
+  },
+   
+"influxdb17": 
+  {"type": "udp",
+
+   "mutator":"only_check_output",                
+   "socket": {
+"host": "127.0.0.1",
+"port": 8017}
+                         
+  },
+  
+"influxdb18": 
+  {"type": "udp",
+
+   "mutator":"only_check_output",                
+   "socket": {
+"host": "127.0.0.1",
+"port": 8018}
+                         
+  },
+  
+"influxdb19": 
+  {"type": "udp",
+
+   "mutator":"only_check_output",                
+   "socket": {
+"host": "127.0.0.1",
+"port": 8019}
+                         
+  },
+  
+"influxdb20": 
+  {"type": "udp",
+
+   "mutator":"only_check_output",                
+   "socket": {
+"host": "127.0.0.1",
+"port": 8020}
+                         
+  },
+  
+"influxdb21": 
+  {"type": "udp",
+
+   "mutator":"only_check_output",                
+   "socket": {
+"host": "127.0.0.1",
+"port": 8021}
+                         
+  },
+  
+"influxdb22": 
+  {"type": "udp",
+
+   "mutator":"only_check_output",                
+   "socket": {
+"host": "127.0.0.1",
+"port": 8022}
+                         
+  },
+  
+"influxdb23": 
+  {"type": "udp",
+
+   "mutator":"only_check_output",                
+   "socket": {
+"host": "127.0.0.1",
+"port": 8023}
+                         
+  },
+  "influxdbTotalPower": 
+  {"type": "udp",
+
+   "mutator":"only_check_output",                
+   "socket": {
+"host": "127.0.0.1",
+"port": 8030}
+                         
+  },
+  "influxdbRackPA": 
+  {"type": "udp",
+
+   "mutator":"only_check_output",                
+   "socket": {
+"host": "127.0.0.1",
+"port": 8031}
+                         
+  },
+  "influxdbRackPB": 
+  {"type": "udp",
+
+   "mutator":"only_check_output",                
+   "socket": {
+"host": "127.0.0.1",
+"port": 8032}
+                         
+  },
+  "influxdbRackPC": 
+  {"type": "udp",
+
+   "mutator":"only_check_output",                
+   "socket": {
+"host": "127.0.0.1",
+"port": 8033}
+                         
   }
  }
 }

@@ -17,19 +17,19 @@ for key in client.keys():
     except KeyError: #if there is no timestamp
       timestamp = ("%f" % (time.time()*10**9))[:-7]
     if fnmatch.fnmatch(key,"mechanical:airhand*"):
-      metric = data['metric'][:26].replace(":","_")
+      field = "airhandlingunit"
+      metric = "mechanical_cooling"
+      devID = data['tags']
+      value = data['value']
     elif fnmatch.fnmatch(key,"electrical:meters:*"):
+      metric = "electrical_meter"
       field = data['metric'].replace(".","_").replace("electrical_meter_","")
-      tagValue = tags['deviceid'].replace("-","_")
-      sys.stdout.write("electrical_meter,device_id={0} {1}={2} {3}\n".format(tagValue, field,value,timestamp))
-      continue
+      devID = tags['deviceid'].replace("-","_")
     else:
-      metric = data['metric'][:24].replace(":","_")
-    try:
-      tagKey = tags.keys()[0].replace("-","_")
-      tagValue = tags[tagKey].replace("-","_")
-      sys.stdout.write("{0},{1}={2} value={3} {4}\n".format(metric, tagKey, tagValue, value, timestamp))
-    except AttributeError: #if tags is not a dictionary
-      sys.stdout.write("{0},device_id={1} value={2} {3}\n".format(metric, tags.replace("-","_"), value, timestamp))
+      field = "makeupairunit"
+      metric = "mechanical_cooling"
+      devID = data['tags']
+      value = data['value']
+    sys.stdout.write("{0},dev_ID={1} {2}={3} {4}\n".format(metric, devID, field, value, timestamp))
 
 sys.exit(0)  

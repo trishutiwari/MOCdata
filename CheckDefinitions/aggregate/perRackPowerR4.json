@@ -1,0 +1,12 @@
+{"checks":
+	{"perRackPowerR4":
+		{"type":"metric",
+                "command":"perRackPowerPA.py *R4*",
+		"standalone": true,
+		"subscribers":["busplugR4"],
+		"handler":"influxdbRackR4",
+		"interval":300
+		}
+
+	}
+}

@@ -1,10 +1,10 @@
 {"checks":
-	{"busplug":
+	{"busplug6":
 		{"type":"metric",
                 "command":"busplug.py electrical:busplug*R3*PA*",
 		"standalone": true,
 		"subscribers":["busplugR3PA"],
-		"handler":"influxdb",
+		"handler":"influxdb6",
 		"interval":60
 		}
 
