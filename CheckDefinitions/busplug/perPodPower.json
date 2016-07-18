@@ -1,0 +1,12 @@
+{"checks":
+	{"pod":
+		{"type":"metric",
+                "command":"perPodPower.py",
+		"standalone": true,
+		"subscribers":["pod"],
+		"handler":"influxdbTotalPower",
+		"interval":3600
+		}
+
+	}
+}

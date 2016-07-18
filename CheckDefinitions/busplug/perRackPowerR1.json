@@ -1,0 +1,12 @@
+{"checks":
+	{"perRackPowerR1":
+		{"type":"metric",
+                "command":"perRackPowerPB.py *R1*",
+		"standalone": true,
+		"subscribers":["busplugR1"],
+		"handler":"influxdbRackR1",
+		"interval":3600
+		}
+
+	}
+}
