@@ -185,13 +185,16 @@ Here is some of the Mechanical IRC and apparent/displacement pf data:
 
 Like Uchiwa, graphs in Grafana too can continuosly update themselves to reflect the newer data as it comes in:
 
-To create graphs in grafana, we must first connect to the InfluxDB database. This can be done by going to the "datasources" tab on the grafana homepage.
+To create graphs in grafana, we must first connect to the InfluxDB database. This can be done by going to the "datasources" tab on the grafana homepage and selecting
+the database we want to connect to.
 
-Once we have connected with our database, all we need to do is to create new dashboards and graphs.
+Once we have connected with our database, all we need to do is to create new dashboards and graphs. This can be done by clicking "+ New Dashboard" on the homepage 
+dropdown menu. We can then add rows in the newly created dashboard by clicking the button that says so. We then add a graph to the new row after selecting from the
+different options given from clicking the green button on the left side of the row. 
 
-After creating a dashboard, we can add a new row to it, and then add a graph to the row. 
+We then click on the title of the graph and select edit, and go to the metrics part of the graph. Here, we enter an InfluxDB query which specefies what data we want to 
+plot.
 
-We then click on edit, and go to the metrics part of the graph. Here, we enter an InfluxDB query which specefies what data we want to plot.
 We can also select an auto refresh time. In our case, most graphs refresh every minute since that's how often we're collecting the data.
 
 Our grafana instance has the following dashboards:

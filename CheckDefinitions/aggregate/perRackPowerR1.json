@@ -5,7 +5,7 @@
 		"standalone": true,
 		"subscribers":["busplugR1"],
 		"handler":"influxdbRackR1",
-		"interval":300
+		"interval":600
 		}
 
 	}

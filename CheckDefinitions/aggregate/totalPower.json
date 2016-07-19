@@ -5,7 +5,7 @@
 		"standalone": true,
 		"subscribers":["totalPower"],
 		"handler":"influxdbTotalPower",
-		"interval":300
+		"interval":600
 		}
 
 	}

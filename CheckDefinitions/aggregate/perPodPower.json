@@ -5,7 +5,7 @@
 		"standalone": true,
 		"subscribers":["pod"],
 		"handler":"influxdbTotalPower",
-		"interval":300
+		"interval":600
 		}
 
 	}
