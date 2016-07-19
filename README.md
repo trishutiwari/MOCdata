@@ -185,4 +185,43 @@ Here is some of the Mechanical IRC and apparent/displacement pf data:
 
 Like Uchiwa, graphs in Grafana too can continuosly update themselves to reflect the newer data as it comes in:
 
-![logo](https://github.com/trishutiwari/MOCdata/blob/master/grafanaScreenShot.png)
+To create graphs in grafana, we must first connect to the InfluxDB database. This can be done by going to the "datasources" tab on the grafana homepage.
+
+Once we have connected with our database, all we need to do is to create new dashboards and graphs.
+
+After creating a dashboard, we can add a new row to it, and then add a graph to the row. 
+
+We then click on edit, and go to the metrics part of the graph. Here, we enter an InfluxDB query which specefies what data we want to plot.
+We can also select an auto refresh time. In our case, most graphs refresh every minute since that's how often we're collecting the data.
+
+Our grafana instance has the following dashboards:
+
+Electrical Busplug: current,voltage,power and energy
+
+![logo](https://github.com/trishutiwari/MOCdata/blob/master/ResultsImages/busplugReacPowerEnergy.png)
+![logo](https://github.com/trishutiwari/MOCdata/blob/master/ResultsImages/busplugVoltageCurrent.png)
+
+Mechanical IRC: temperatures
+
+![logo](https://github.com/trishutiwari/MOCdata/blob/master/ResultsImages/IRC1.png)
+![logo](https://github.com/trishutiwari/MOCdata/blob/master/ResultsImages/IRC2.png)
+
+Mechanical cooling: chillingtowers, exhaust fans, pumps
+
+![logo](https://github.com/trishutiwari/MOCdata/blob/master/ResultsImages/mechanicalCooling1.png)
+![logo](https://github.com/trishutiwari/MOCdata/blob/master/ResultsImages/mechanicalCooling2.png)
+![logo](https://github.com/trishutiwari/MOCdata/blob/master/ResultsImages/mechanicalCooling3.png)
+
+Electrical Meters: power, energy
+
+![logo](https://github.com/trishutiwari/MOCdata/blob/master/ResultsImages/metersPowerEnergy.png)
+
+Electrical Generator
+
+![logo](https://github.com/trishutiwari/MOCdata/blob/master/ResultsImages/electricalGenerator.png)
+
+Weather Station: temperature
+
+![logo](https://github.com/trishutiwari/MOCdata/blob/master/ResultsImages/weatherstation.png)
+
+Aggregate Data: busplug per rack and  per pod power and energy consumption, total datacenter compute energy
