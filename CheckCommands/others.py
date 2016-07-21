@@ -31,9 +31,16 @@ for key in client.keys():
         else: 
           if "cooling" in key: #CTTotal_gal_blowdown_total,	CTTotal_gal_makeup_total, etc
             k = data.keys()[1]
-            field = key[19:-4].replace(':','_')+ '_' + k.replace(':','_') 
             value = data[k]
-            sys.stdout.write("mechanical_cooling {0}={1} {2}\n".format(field,value,timestamp))
+            if 'CH' in key:
+              dev_id = key[19:-5].replace(':','_')
+              sys.stdout.write("mechanical_cooling,dev_ID={0} chiller_kwh={1} {2}\n".format(dev_id,value,timestamp))
+            else:
+              if 'Sys' in key:
+                field = key[19:-5]
+              else:
+                field = key[19:-5].replace(':','_')+ '_' + k.replace(':','_') 
+              sys.stdout.write("mechanical_cooling {0}={1} {2}\n".format(field,value,timestamp))
           elif "status" not in key: #hotwater pump, chilled water pump, and exhaust fan
             if "hotwater" in key:
               field = "hotwaterpump"

@@ -1,12 +1,12 @@
 {
 "handlers": 
  {
-"influxdb": 
+"influxdb24": 
   {"type": "udp",
 
    "mutator":"only_check_output",                
    "socket": {
-"host": "127.0.0.1",
+"host": "10.13.37.179",
 "port": 8090
 }
                          
@@ -16,7 +16,7 @@
 
    "mutator":"only_check_output",                
    "socket": {
-"host": "127.0.0.1",
+"host": "10.13.37.179",
 "port": 8091
 }
                          
@@ -27,7 +27,7 @@
 
    "mutator":"only_check_output",                
    "socket": {
-"host": "127.0.0.1",
+"host": "10.13.37.179",
 "port": 8092}
                          
   },
@@ -37,7 +37,7 @@
 
    "mutator":"only_check_output",                
    "socket": {
-"host": "127.0.0.1",
+"host": "10.13.37.179",
 "port": 8093}
                          
   },
@@ -47,7 +47,7 @@
 
    "mutator":"only_check_output",                
    "socket": {
-"host": "127.0.0.1",
+"host": "10.13.37.179",
 "port": 8094
 }
                          
@@ -58,7 +58,7 @@
 
    "mutator":"only_check_output",                
    "socket": {
-"host": "127.0.0.1",
+"host": "10.13.37.179",
 "port": 8095
 }
                          
@@ -69,7 +69,7 @@
 
    "mutator":"only_check_output",                
    "socket": {
-"host": "127.0.0.1",
+"host": "10.13.37.179",
 "port": 8096
 }
                          
@@ -80,7 +80,7 @@
 
    "mutator":"only_check_output",                
    "socket": {
-"host": "127.0.0.1",
+"host": "10.13.37.179",
 "port": 8097
 }
                          
@@ -91,7 +91,7 @@
 
    "mutator":"only_check_output",                
    "socket": {
-"host": "127.0.0.1",
+"host": "10.13.37.179",
 "port": 8098}
                          
   },
@@ -101,7 +101,7 @@
 
    "mutator":"only_check_output",                
    "socket": {
-"host": "127.0.0.1",
+"host": "10.13.37.179",
 "port": 8099
 }
                          
@@ -112,7 +112,7 @@
 
    "mutator":"only_check_output",                
    "socket": {
-"host": "127.0.0.1",
+"host": "10.13.37.179",
 "port": 8010}
                          
   },
@@ -122,7 +122,7 @@
 
    "mutator":"only_check_output",                
    "socket": {
-"host": "127.0.0.1",
+"host": "10.13.37.179",
 "port": 8011}
                          
   },
@@ -132,7 +132,7 @@
 
    "mutator":"only_check_output",                
    "socket": {
-"host": "127.0.0.1",
+"host": "10.13.37.179",
 "port": 8012}
                          
   },
@@ -142,7 +142,7 @@
 
    "mutator":"only_check_output",                
    "socket": {
-"host": "127.0.0.1",
+"host": "10.13.37.179",
 "port": 8013}
                          
   },
@@ -152,7 +152,7 @@
 
    "mutator":"only_check_output",                
    "socket": {
-"host": "127.0.0.1",
+"host": "10.13.37.179",
 "port": 8014}
                          
   },
@@ -162,7 +162,7 @@
 
    "mutator":"only_check_output",                
    "socket": {
-"host": "127.0.0.1",
+"host": "10.13.37.179",
 "port": 8015}
                          
   },
@@ -172,7 +172,7 @@
 
    "mutator":"only_check_output",                
    "socket": {
-"host": "127.0.0.1",
+"host": "10.13.37.179",
 "port": 8016}
                          
   },
@@ -182,7 +182,7 @@
 
    "mutator":"only_check_output",                
    "socket": {
-"host": "127.0.0.1",
+"host": "10.13.37.179",
 "port": 8017}
                          
   },
@@ -192,7 +192,7 @@
 
    "mutator":"only_check_output",                
    "socket": {
-"host": "127.0.0.1",
+"host": "10.13.37.179",
 "port": 8018}
                          
   },
@@ -202,7 +202,7 @@
 
    "mutator":"only_check_output",                
    "socket": {
-"host": "127.0.0.1",
+"host": "10.13.37.179",
 "port": 8019}
                          
   },
@@ -212,7 +212,7 @@
 
    "mutator":"only_check_output",                
    "socket": {
-"host": "127.0.0.1",
+"host": "10.13.37.179",
 "port": 8020}
                          
   },
@@ -222,7 +222,7 @@
 
    "mutator":"only_check_output",                
    "socket": {
-"host": "127.0.0.1",
+"host": "10.13.37.179",
 "port": 8021}
                          
   },
@@ -232,7 +232,7 @@
 
    "mutator":"only_check_output",                
    "socket": {
-"host": "127.0.0.1",
+"host": "10.13.37.179",
 "port": 8022}
                          
   },
@@ -242,7 +242,7 @@
 
    "mutator":"only_check_output",                
    "socket": {
-"host": "127.0.0.1",
+"host": "10.13.37.179",
 "port": 8023}
                          
   },
@@ -251,7 +251,7 @@
 
    "mutator":"only_check_output",                
    "socket": {
-"host": "127.0.0.1",
+"host": "10.13.37.179",
 "port": 8030}
                          
   },
@@ -260,7 +260,7 @@
 
    "mutator":"only_check_output",                
    "socket": {
-"host": "127.0.0.1",
+"host": "10.13.37.179",
 "port": 8031}
                          
   },
@@ -269,7 +269,7 @@
 
    "mutator":"only_check_output",                
    "socket": {
-"host": "127.0.0.1",
+"host": "10.13.37.179",
 "port": 8032}
                          
   },
@@ -278,7 +278,7 @@
 
    "mutator":"only_check_output",                
    "socket": {
-"host": "127.0.0.1",
+"host": "10.13.37.179",
 "port": 8033}
                          
   }

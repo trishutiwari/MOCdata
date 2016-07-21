@@ -2,7 +2,7 @@
 
 import influxdb, sys, datetime, time
 
-client = influxdb.InfluxDBClient(database='MOCdata')
+client = influxdb.InfluxDBClient(host='10.13.37.179',database='sensu_db')
 
 tagsrs = client.query("show tag values from electrical_busplug with key = busplug_ID")
 

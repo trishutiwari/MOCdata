@@ -11,6 +11,7 @@ def pod(x):
     
 tags = sorted([x for x in map(pod,tagsrs[tagsrs.keys()[0]]) if x != None])
 
+
 power = []
 energy = []
 rackp = dict()
@@ -23,17 +24,26 @@ for tag in tags:
   energy.append(data['mae'])
 timestamp = '%d' % (time.mktime(datetime.datetime.strptime(data['time'],'%Y-%m-%dT%H:%M:%SZ').timetuple())*10**9)
 
+c = 0
 try:
-  for n,tag in enumerate(tags):
-    if 'R12' in tag:
-      rackp[tag[:-2]] = power[n]
-      racke[tag[:-2]] = energy[n]     
-    elif fnmatch.fnmatch(tag[:-2],tags[n+2][:-2]): #there don't seem to be any racks with 4 busplugs, but checking anyways as it was mentioned in the email
-      rackp[tag[:-3]] = sum(power[n:n+4])
-      racke[tag[:-3]] = sum(energy[n:n+4])
-    else:
-      rackp[tag[:-3]] = sum(power[n:n+2])
-      racke[tag[:-3]] = sum(energy[n:n+2])
+  for tag in tags:
+    if 'R12' in tags[c]:
+      rackp[tags[c][:-2]] = power[c]
+      racke[tags[c][:-2]] = energy[c]
+      c+=1
+    elif len(tags[c]) == 12:
+      rackp[tags[c][:-3]] = sum(power[c:c+2])
+      racke[tags[c][:-3]] = sum(energy[c:c+2])
+      c+=2     
+    elif len(tags[c]) == 14: #if a rack has 3 or 4 busplugs
+      if fnmatch.fnmatch(tags[c][:-4],tags[c+3][:-4]): #if a rack has 4 busplugs
+        rackp[tags[c][:-5]] = sum(power[c:c+4])
+        racke[tags[c][:-5]] = sum(energy[c:c+4])
+        c+=4
+      elif fnmatch.fnmatch(tags[c][:-4],tags[c+2][:-4]): #if a rack has 3 busplugs
+        rackp[tags[c][:-5]] = sum(power[c:c+3])
+        racke[tags[c][:-5]] = sum(energy[c:c+3])
+        c+=3
 except IndexError:
   pass
   
@@ -42,3 +52,4 @@ for i in range(len(rackp)):
   p = rackp[busplug_id] 
   e = racke[busplug_id]
   sys.stdout.write('aggregate,busplug_ID={0} active_power={1},metered_active_energy={2} {3}\n'.format(busplug_id,p,e,timestamp))
+  

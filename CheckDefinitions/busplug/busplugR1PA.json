@@ -4,7 +4,7 @@
                 "command":"busplug.py electrical:busplug*R1*PA*",
 		"standalone": true,
 		"subscribers":["busplugR1PA"],
-		"handler":"influxdb",
+		"handler":"influxdb24",
 		"interval":60
 		}
 

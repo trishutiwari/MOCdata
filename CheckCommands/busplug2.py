@@ -8,7 +8,7 @@ arg = sys.argv[1]
 
 for key in client.keys(arg):
   data = json.loads(client.get(key))
-  tag = key[19:-5].replace("-","_").replace(':','_')
+  tag = key[19:-5].replace("-","_").replace(':','_') 
   ap = data['active_power']/10
   cl3h = data['current_l3_hires']/10
   cl3l = data['current_l3_lowres']
