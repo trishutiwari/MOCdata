@@ -2,7 +2,7 @@
 
 import influxdb, sys, fnmatch, datetime, time
 
-client = influxdb.InfluxDBClient(database='MOCdata')
+client = influxdb.InfluxDBClient(database='sensu_db')
 
 tagsrs = client.query("show tag values from electrical_busplug with key = busplug_ID")
 
@@ -28,8 +28,8 @@ c = 0
 try:
   for tag in tags:
     if 'R12' in tags[c]:
-      rackp[tags[c][:-2]] = power[c]
-      racke[tags[c][:-2]] = energy[c]
+      rackp[tags[c][:-3]] = power[c]
+      racke[tags[c][:-3]] = energy[c]
       c+=1
     elif len(tags[c]) == 12:
       rackp[tags[c][:-3]] = sum(power[c:c+2])
